@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const API_URL = "https://api.abcz.workers.dev/api/fitlog";
 
@@ -51,9 +52,10 @@ export default function WorkoutLibrary() {
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {workouts.map((workout) => (
-          <article
+          <Link
+            href={`/workout/${workout.id}`}
             key={workout.id}
-            className="group overflow-hidden border border-white/10 bg-[#111111] transition hover:-translate-y-1 hover:border-[#ccff00]/50"
+            className="group block overflow-hidden border border-white/10 bg-[#111111] transition hover:-translate-y-1 hover:border-[#ccff00]/50"
           >
             <img
               src={workout.image}
@@ -98,7 +100,7 @@ export default function WorkoutLibrary() {
                 </div>
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>
