@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { FitLogProvider } from "@/context/FitLogContext";
 import { Toaster } from "react-hot-toast";
 
@@ -16,6 +17,8 @@ export default function RootLayout({ children }) {
           <Navbar />
 
           {children}
+
+          <Footer />
 
           <Toaster
             position="bottom-right"
