@@ -1,13 +1,13 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import WorkoutLibrary from "@/components/WorkoutLibrary";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#090909] text-white">
       {/* Hero Section */}
       <section className="mx-auto grid min-h-[650px] max-w-[1400px] items-center gap-10 px-6 py-16 md:px-10 lg:grid-cols-2 lg:px-16">
-        
         {/* Left Content */}
         <div>
           <p className="mb-5 text-sm font-bold tracking-[0.25em] text-[#ccff00]">
@@ -44,21 +44,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Temporary Library Section */}
-      <section
-        id="library"
-        className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 lg:px-16"
-      >
-        <p className="text-sm font-bold tracking-[0.25em] text-[#ccff00]">
-          WORKOUTS
-        </p>
-
-        <h2 className="mt-3 text-4xl font-black">THE LIBRARY</h2>
-
-        <p className="mt-3 text-gray-400">
-          Twelve lifts covering every major muscle group.
-        </p>
-      </section>
+      {/* Workout Library */}
+      <WorkoutLibrary />
     </main>
   );
 }
