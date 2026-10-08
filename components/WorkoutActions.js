@@ -1,3 +1,4 @@
+
 "use client";
 
 import toast from "react-hot-toast";
@@ -31,6 +32,8 @@ export default function WorkoutActions({ workout }) {
       JSON.stringify(updatedPlan)
     );
 
+    window.dispatchEvent(new Event("fitlog-updated"));
+
     toast.success("Workout added to today's plan!");
   }
 
@@ -53,6 +56,8 @@ export default function WorkoutActions({ workout }) {
       "fitlog-saved",
       JSON.stringify(updatedSaved)
     );
+
+    window.dispatchEvent(new Event("fitlog-updated"));
 
     toast.success("Workout saved for later!");
   }

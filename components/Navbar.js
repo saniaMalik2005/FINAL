@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -13,9 +14,11 @@ export default function Navbar() {
     loadCounts();
 
     window.addEventListener("storage", loadCounts);
+    window.addEventListener("fitlog-updated", loadCounts);
 
     return () => {
       window.removeEventListener("storage", loadCounts);
+      window.removeEventListener("fitlog-updated", loadCounts);
     };
   }, []);
 
@@ -40,7 +43,6 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#090909]/95 backdrop-blur">
       <nav className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 md:px-10 lg:px-16">
 
-        {/* Logo */}
         <Link
           href="/"
           onClick={closeMenu}
@@ -55,7 +57,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex">
           <Link
             href="/#library"
@@ -71,7 +72,6 @@ export default function Navbar() {
             MY PLAN
           </Link>
 
-          {/* Plan Badge */}
           <Link
             href="/my-plan"
             className="flex items-center gap-2 bg-[#ccff00] px-4 py-2 text-xs font-black text-black transition hover:bg-white"
@@ -82,7 +82,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Saved Badge */}
           <Link
             href="/my-plan"
             className="flex items-center gap-2 border border-[#ccff00] px-4 py-2 text-xs font-black text-[#ccff00] transition hover:bg-[#ccff00] hover:text-black"
@@ -94,7 +93,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -105,7 +103,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="border-t border-white/10 bg-[#090909] px-6 py-6 md:hidden">
           <div className="flex flex-col gap-4">
@@ -149,9 +146,11 @@ export default function Navbar() {
                 {savedCount}
               </span>
             </Link>
+
           </div>
         </div>
       )}
     </header>
   );
 }
+
