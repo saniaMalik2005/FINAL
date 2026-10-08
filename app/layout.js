@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { FitLogProvider } from "@/context/FitLogContext";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "FitLog — Workout Library",
@@ -13,7 +14,19 @@ export default function RootLayout({ children }) {
       <body>
         <FitLogProvider>
           <Navbar />
+
           {children}
+
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#111111",
+                color: "#ffffff",
+                border: "1px solid #ccff00",
+              },
+            }}
+          />
         </FitLogProvider>
       </body>
     </html>
